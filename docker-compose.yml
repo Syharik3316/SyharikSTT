@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  transcription:
+    build: .
+    container_name: local-transcription
+    ports:
+      - "8020:8020"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+      - ./models:/app/models
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

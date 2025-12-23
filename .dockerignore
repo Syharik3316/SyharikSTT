@@ -1,0 +1,13 @@
+# Игнорировать всё
+*
+
+# Разрешить только нужные файлы
+!backend/
+!frontend/
+!Dockerfile
+!docker-compose.yml
+!.dockerignore
+
+# Но внутри backend и frontend можно всё
+!backend/**
+!frontend/**
