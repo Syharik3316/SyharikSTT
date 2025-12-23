@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транскрибация аудио/видео</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎙️ Локальная транскрибация</h1>
+        </header>
+
+        <main>
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <h2>Перетащите файл сюда</h2>
+                    <p>или</p>
+                    <label for="fileInput" class="file-button">Выбрать файл</label>
+                    <input type="file" id="fileInput" accept=".mp3,.wav,.m4a,.ogg,.mp4,.mov,.avi" hidden>
+                    <p class="formats">Поддерживаемые форматы: MP3, WAV, M4A, OGG, MP4, MOV, AVI</p>
+                </div>
+            </div>
+
+            <div class="processing-section" id="processingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p id="processingStatus">Загрузка файла...</p>
+                <p class="filename" id="processingFilename"></p>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="result-header">
+                    <h2>Результат транскрибации</h2>
+                    <div class="actions">
+                        <button class="btn btn-export" id="exportTxtBtn">📄 Экспорт TXT</button>
+                        <button class="btn btn-export" id="exportDocxBtn">📝 Экспорт DOCX</button>
+                    </div>
+                </div>
+                <div class="filename-input-container">
+                    <label for="fileNameInput">Название файла:</label>
+                    <input type="text" id="fileNameInput" class="filename-input" placeholder="Введите название файла">
+                </div>
+                <textarea id="resultText" placeholder="Текст появится здесь..."></textarea>
+                <div class="result-footer">
+                    <button class="btn btn-save" id="saveBtn">💾 Сохранить изменения</button>
+                    <button class="btn btn-new" id="newFileBtn">🆕 Новый файл</button>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+                <button class="btn btn-new" onclick="resetUpload()">Попробовать снова</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
