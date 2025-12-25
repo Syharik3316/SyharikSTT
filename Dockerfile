@@ -33,6 +33,6 @@ COPY backend/ ./backend/
 COPY frontend/ ./frontend/
 
 RUN mkdir -p uploads results
-EXPOSE 8020
+EXPOSE 80
 
-CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8020"]
+CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "80"]

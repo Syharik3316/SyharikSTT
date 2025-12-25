@@ -5,7 +5,7 @@ services:
     build: .
     container_name: local-transcription
     ports:
-      - "8020:8020"
+      - "80:80"
     volumes:
       - ./uploads:/app/uploads
       - ./results:/app/results

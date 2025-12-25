@@ -687,3 +687,340 @@ main {
         width: 100%;
     }
 }
+/* Секция истории */
+.history-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-left: 4px solid #ff073a;
+    margin-top: 20px;
+    animation: fadeInScale 1.5s ease-out 1.2s both;
+}
+
+.history-header {
+    padding: 20px 30px;
+    background: rgba(255, 7, 58, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-header:hover {
+    background: rgba(255, 7, 58, 0.15);
+}
+
+.history-header h3 {
+    color: #ff073a;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-toggle {
+    color: #ff073a;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.history-content {
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.history-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #b8c2cc;
+}
+
+.history-empty i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.history-hint {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-item {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: rgba(255, 7, 58, 0.3);
+}
+
+.history-item-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 7, 58, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.history-item-icon i {
+    color: #ff073a;
+    font-size: 1.2rem;
+}
+
+.history-item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.history-item-title {
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-item-preview {
+    color: #b8c2cc;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
+}
+
+.history-item-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #8a96a5;
+}
+
+.history-item-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.history-item-size {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.history-item-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.history-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.history-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.history-action-btn.view {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
+}
+
+.history-action-btn.view:hover {
+    background: rgba(33, 150, 243, 0.3);
+}
+
+.history-action-btn.delete {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.history-action-btn.delete:hover {
+    background: rgba(244, 67, 54, 0.3);
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid rgba(255, 7, 58, 0.5);
+    box-shadow: 0 20px 60px rgba(255, 7, 58, 0.3);
+    animation: fadeInScale 0.3s ease;
+}
+
+.modal-content h3 {
+    color: #ff073a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-content p {
+    color: #b8c2cc;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.modal-filename {
+    color: white !important;
+    font-weight: 600;
+    background: rgba(255, 7, 58, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px 0 !important;
+    border-left: 3px solid #ff073a;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+}
+
+.btn-delete:hover {
+    background: linear-gradient(45deg, #d32f2f 0%, #b71c1c 100%);
+}
+
+/* Анимации */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Полоса прокрутки */
+.history-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.history-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 7, 58, 0.5);
+    border-radius: 4px;
+}
+
+.history-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 7, 58, 0.7);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .history-item-actions {
+        align-self: flex-end;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .btn-cancel, .btn-delete {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff; /* Белый текст */
+    padding: 20px 0; /* Внутренние отступы сверху/снизу */
+    text-align: center; /* Центрирование текста */
+    font-family: Arial, sans-serif; /* Шрифт */
+    margin-top: 30px; /* Отступ от основного контента (если не Flexbox) */
+}
+
+footer a {
+    color: #b0b0b0; /* Светлый цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    margin: 0 10px; /* Отступы между ссылками */
+}
+
+footer a:hover {
+    color: #fff; /* Цвет ссылок при наведении */
+}
