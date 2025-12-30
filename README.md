@@ -56,11 +56,21 @@ python -m ctranslate2.converters.transformers --model <hf-model-id> --output_dir
 cp -r ./ct2-tiny /path/to/SyharikSTT/models/tiny
 ```
 
-3) Cоберите и запустите контейнер (в корне проекта):
+4) Измените имя используемой модели в файле app.py внутри функции get_model
+
+```app.py
+        possible_paths = [
+            "/app/models/tiny",
+            "./models/tiny",
+            "tiny"
+        ]
+```
+
+6) Cоберите и запустите контейнер (в корне проекта):
 
 ```powershell
 docker-compose up --build -d
-docker-compose logs -f transcription
+docker-compose logs -f
 ```
 
 # Обновление V1.2:
